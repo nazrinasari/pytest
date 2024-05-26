@@ -3,9 +3,9 @@ from utils.config_loader import load_config
 from locators import LoginPageLocators
 
 class LoginPage(SeleniumDriver):
-    def __init__(self, driver, config):  # Pass config as a parameter
+    def __init__(self, driver, config):
         self.driver = driver
-        self.config = config  # Set config as an attribute
+        self.config = config
 
     def enterEmail(self, email):
         self.sendKeys(email, LoginPageLocators.EMAIL_FIELD)
