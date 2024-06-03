@@ -1,16 +1,15 @@
 from selenium.webdriver.common.by import By
 from base.selenium_driver import SeleniumDriver
+from locators import ProductPageLocators
 
 class ProductsPage(SeleniumDriver):
-
-    def __init__(self, driver):
-        super().__init__(driver)
+    def __init__(self, driver, config):
         self.driver = driver
-
-    # Locators
-    _product_grid = "inventory_container"
-    _product_item = ".inventory_item"
+        self.config = config
 
     def get_product_count(self):
-        products = self.driver.find_elements(By.CSS_SELECTOR, self._product_item)
-        return len(products)
+        product_elements = self.getElement(ProductPageLocators.PRODUCTS, locatorType="CLASS_NAME")
+        print(product_elements)
+        # num_products = len(product_elements)
+        # print("Number of products displayed:", num_products)
+
